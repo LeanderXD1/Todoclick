@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso de Administración - Dulces Deliciosos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Estilos específicos para la página de login de administración */
+        .admin-login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 180px); /* Ajusta para que ocupe casi toda la pantalla */
+            background-color: #f8fbfd; /* Fondo más claro */
+            padding: 20px;
+        }
+
+        .login-box {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            color: #1a2a4b;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            display: inline-block; /* Para que la línea se ajuste al texto */
+        }
+
+        .login-box label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: calc(100% - 22px); /* Ajuste para padding y border */
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1.1em;
+            box-sizing: border-box; /* Incluye padding y border en el width */
+        }
+
+        .login-box .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .flash-messages {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+            margin-bottom: 0;
+        }
+
+        .flash-messages li {
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .flash-messages .danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Dulces Deliciosos</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('productos') }}">Productos</a></li>
+                    <li><a href="{{ url_for('nosotros') }}">Nosotros</a></li>
+                    <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+                    <li><a href="{{ url_for('admin_login') }}" class="admin-link">Administración</a></li> 
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="admin-login-container">
+            <div class="login-box">
+                <h2>Acceso Administrativo</h2>
+                {# Mensajes Flash de Flask #}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="flash-messages">
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('admin_login') }}" method="post">
+                    <div class="input-group">
+                        <label for="username">Usuario:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Iniciar Sesión</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Tu Carrito</h2>
+                <div id="cart-items">
+                    <p>El carrito está vacío.</p>
+                </div>
+                <div class="cart-total">
+                    Total: <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="whatsapp-btn-after-payment" class="btn btn-success" style="width: 100%;">Confirmar Pedido por WhatsApp</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dulces Deliciosos. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@pastitic?_t=ZM-8xcAtZahAVJ&_r=1" target="_blank" aria-label="Visita nuestro TikTok">
+                    <img src="{{ url_for('static', filename='tiktok_icon.png') }}" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/enderrhl2025?igsh=bDJoNXJyZ3R1d2c4" target="_blank" aria-label="Visita nuestro Instagram">
+                    <img src="{{ url_for('static', filename='instagram_icon.png') }}" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Todo click</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Todo click</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('productos') }}">Productos</a></li>
+                    <li><a href="{{ url_for('nosotros') }}">Nosotros</a></li>
+                    <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+                    <li><a href="{{ url_for('admin_login') }}" class="admin-link">Administración</a></li> 
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="about">
+            <div class="container">
+                <h2>¿Quiénes somos? </h2>
+                <p>"Somos un grupo de compañeros y amigos del INCES, unidos por las ganas de emprender y endulzarte el día. En nuestra página, vas a encontrar esa chuchería que tanto te gusta para un antojo rápido, y también nuestras deliciosas marquesas caseras, hechas con todo el cariño y la sazón que nos caracteriza.".</p>
+                <h2>Nuestra Misión: </h2>
+                <p>"Ofrecerte una selección variada de tus dulces y antojos favoritos, desde las chucherías más buscadas hasta nuestras creaciones de repostería artesanal, todo con la comodidad de comprar online."</p>
+            </div>
+        </section>
+
+        <section id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Tu Carrito</h2>
+                <div id="cart-items">
+                    <p>El carrito está vacío.</p>
+                </div>
+                <div class="cart-total">
+                    Total: <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="whatsapp-btn-after-payment" class="btn btn-success" style="width: 100%;">Confirmar Pedido por WhatsApp</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dulces Deliciosos. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@pastitic?_t=ZM-8xcAtZahAVJ&_r=1" target="_blank" aria-label="Visita nuestro TikTok">
+                    <img src="{{ url_for('static', filename='tiktok_icon.png') }}" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/enderrhl2025?igsh=bDJoNXJyZ3R1d2c4" target="_blank" aria-label="Visita nuestro Instagram">
+                    <img src="{{ url_for('static', filename='instagram_icon.png') }}" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+/* Estilos Generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Blanco muy suave */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Encabezado */
+header {
+    background-color: #1a2a4b; /* Azul oscuro - casi negro azulado */
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    font-family: 'Arial Black', sans-serif; /* Más moderno y audaz */
+    color: #f0f8ff; /* Azul muy claro */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: #a7d9f7; /* Azul claro para enlaces */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #e0f2f7; /* Azul más claro al pasar el mouse */
+}
+
+.cart-icon {
+    font-size: 2em;
+    cursor: pointer;
+    position: relative;
+    color: #f0f8ff; /* Azul muy claro */
+    transition: transform 0.3s ease; /* Animación de carga para el carrito */
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+}
+
+#cart-count {
+    background-color: #007bff; /* Azul brillante */
+    color: white;
+    border-radius: 50%;
+    padding: 3px 8px;
+    font-size: 0.7em;
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    min-width: 20px; /* Para que sea circular incluso con un dígito */
+    text-align: center;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    background-color: #007bff; /* Azul brillante */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+.whatsapp-btn {
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1DA851;
+}
+
+/* Secciones */
+section {
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0; /* Separador sutil */
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+.hero {
+    /* Si tienes una imagen en static/, usa esto: */
+    background: linear-gradient(rgba(26,42,75,0.7), rgba(26,42,75,0.7)), url('/static/hero_background.jpg') no-repeat center center/cover;
+    /* Si quieres el placeholder, usa esto (pero te recomiendo una imagen propia): */
+    /* background: linear-gradient(rgba(26,42,75,0.7), rgba(26,42,75,0.7)), url('https://via.placeholder.com/1500x500/1a2a4b/f0f8ff?text=Fondo+de+Dulces') no-repeat center center/cover; */
+    color: white;
+    padding: 120px 0;
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+}
+
+.products {
+    background-color: #fff;
+}
+
+.products h2, .about h2, .contact h2 {
+    font-size: 2.8em;
+    color: #1a2a4b; /* Azul oscuro */
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.products h2::after, .about h2::after, .contact h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #007bff; /* Azul brillante */
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 180px; /* Un poco más grandes */
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #d0d0d0;
+}
+
+.product-card h3 {
+    margin-top: 0;
+    color: #1a2a4b;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.product-card .price {
+    font-size: 1.8em;
+    color: #007bff; /* Azul brillante */
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.product-card .add-to-cart {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.product-card .add-to-cart:hover {
+    background-color: #0056b3;
+}
+
+
+/* Modal Carrito */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Fondo más oscuro */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 8% auto; /* Más arriba */
+    padding: 35px;
+    border: 1px solid #bbb;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    animation: slideInTop 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-button {
+    color: #888;
+    float: right;
+    font-size: 32px;
+    font-weight: normal; /* No tan bold */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #1a2a4b;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+#cart-items {
+    max-height: 300px; /* Más espacio */
+    overflow-y: auto;
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fcfcfc;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item span {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.cart-item .remove-item {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item .remove-item:hover {
+    background-color: #c82333;
+}
+
+.cart-total {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 30px;
+    color: #007bff;
+    border-top: 2px solid #007bff;
+    padding-top: 15px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #1a2a4b; /* Azul oscuro */
+    color: #a7d9f7;
+    padding: 25px 0;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.95em;
+}
+
+/* Estilos para enlaces de redes sociales en el footer */
+.social-links {
+    margin-top: 20px; /* Espacio sobre los íconos */
+}
+
+.social-links a {
+    display: inline-block; /* Para que margin funcione y no se rompa la línea */
+    margin: 0 10px; /* Espacio entre íconos */
+    transition: transform 0.3s ease; /* Pequeña animación al pasar el ratón */
+}
+
+.social-links a:hover {
+    transform: scale(1.1); /* Agranda el ícono al pasar el ratón */
+}
+
+.social-links img {
+    width: 35px; /* Tamaño un poco más grande */
+    height: 35px;
+    vertical-align: middle; /* Para alinear si el texto del footer es diferente */
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    header nav ul {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        justify-content: center;
+        margin-top: 15px;
+    }
+    header nav ul li {
+        margin: 5px 10px; /* Espaciado más compacto */
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    .hero h2 {
+        font-size: 2.5em;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+        padding: 20px;
+    }
+}
