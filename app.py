@@ -267,4 +267,3 @@ if __name__ == '__main__':
             db.session.commit()
             print(f"Usuario 'vendedor1' creado con contraseña: ClaveVendedor1anotarYGuardar12231")
             
-app.run(debug=False) 
